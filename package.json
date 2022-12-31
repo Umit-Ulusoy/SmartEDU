@@ -1,0 +1,22 @@
+{
+  "name": "smartedustarter",
+  "version": "1.0.0",
+  "description": "Education Portal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umit-Ulusoy/Smart-edu.git"
+  },
+  "author": "Ümit ULUSOY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Umit-Ulusoy/Smart-edu/issues"
+  },
+  "homepage": "https://github.com/Umit-Ulusoy/Smart-edu#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
