@@ -1,8 +1,15 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+const { MongoURL, port } = require('./config.js');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+
+mongoose.connect(MongoURL)
+.then(() => console.log('Connected to the database'))
+.catch(console.error);
+
 
 app.get(/^(\/|\/home)$/, (req, res) =>
 {
@@ -19,5 +26,4 @@ app.get('/about', (req, res) =>
     });
 });
 
-const port = 80;
 app.listen(port, () => console.log('Server is running on port: ' + port));

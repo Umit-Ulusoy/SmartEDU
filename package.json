@@ -9,17 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Umit-Ulusoy/Smart-edu.git"
+    "url": "git+https://github.com/Umit-Ulusoy/SmartEDU.git"
   },
   "author": "Ümit ULUSOY",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Umit-Ulusoy/Smart-edu/issues"
+    "url": "https://github.com/Umit-Ulusoy/SmartEDU/issues"
   },
-  "homepage": "https://github.com/Umit-Ulusoy/Smart-edu#readme",
+  "homepage": "https://github.com/Umit-Ulusoy/SmartEDU#readme",
   "dependencies": {
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^6.8.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
