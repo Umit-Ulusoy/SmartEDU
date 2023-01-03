@@ -2,7 +2,7 @@ module.exports.getIndex = (req, res) =>
 {
     res.status(200).render('index',
     {
-        page: 'home'
+        page_name: 'home'
     });
 }
 
@@ -10,6 +10,6 @@ module.exports.getAbout = (req, res) =>
 {
     res.status(200).render('index',
     {
-        page: 'about'
+        page_name: 'about'
     });
 }
