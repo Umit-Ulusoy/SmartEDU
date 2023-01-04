@@ -22,7 +22,8 @@ exports.getAllCourses = async (req, res) =>
         const courses = await Course.find();
     res.status(200).render('index', {
         courses,
-        page_name: 'courses'
+        page_name: 'courses',
+        file_name: 'courses'
     });
     }catch (error)
     {
@@ -30,5 +31,25 @@ exports.getAllCourses = async (req, res) =>
             status: 'fail',
             error
         });
+    }
+}
+
+exports.getCourse = async (req, res) =>
+{
+    try{
+
+const course = await Course.findOne({ slug: req.params.slug });
+res.status(200).render('index', {
+    course,
+    page_name: 'courses',
+    file_name: 'course'
+});
+    }catch (error) {
+        res.status(400).json(
+            {
+                status: 'fail',
+                error
+            }
+        );
     }
 }
