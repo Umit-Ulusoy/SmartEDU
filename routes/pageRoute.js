@@ -4,5 +4,6 @@ const router = express.Router();
 
 router.route(/^(\/|\/home)$/).get(pageController.getIndex);
 router.route('/about').get(pageController.getAbout);
+router.route('/register').get(pageController.getRegister);
 
 module.exports = router;

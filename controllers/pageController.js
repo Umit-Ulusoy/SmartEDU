@@ -15,3 +15,12 @@ module.exports.getAbout = (req, res) =>
         file_name: 'about'
     });
 }
+
+module.exports.getRegister = (req, res) =>
+{
+    res.status(200).render('index',
+    {
+        page_name: 'register',
+        file_name: 'register'
+    });
+}
