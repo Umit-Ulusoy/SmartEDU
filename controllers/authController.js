@@ -43,3 +43,13 @@ exports.createUser = async (req, res) => {
   {
     res.redirect('/');
   });
+
+  exports.getDashboardPage = async (req, res) =>
+  {
+    const user = await User.findById({ _id: req.session.userID});
+    res.status(200).render('index', {
+      page_name: 'dashboard',
+      file_name: 'dashboard',
+      user
+    });
+  }
