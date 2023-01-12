@@ -48,7 +48,7 @@ exports.getAllCourses = async (req, res) => {
       error,
     });
   }
-};
+}
 
 exports.getCourse = async (req, res) => {
   try {
@@ -65,4 +65,19 @@ exports.getCourse = async (req, res) => {
       error,
     });
   }
-};
+}
+
+exports.enrollCourse = (req, res) =>
+{
+  try {
+    const user = await User.findById(req.session.userID);
+    const addCourse = await user.courses.push({_id: req.body.course_id });
+    const save = await user.save();
+    res.status(200).redirect('/users/dashboard');
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      error
+    });
+  }
+}
