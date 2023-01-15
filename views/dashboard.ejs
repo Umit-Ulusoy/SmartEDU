@@ -21,6 +21,10 @@
 <pre>
 	<%= course.description %>
 </pre>
+<form action="/courses/release" method="POST" >
+	<input type="hidden" name="course_id" value="<%= course._id %>" />
+	<button type="submit" >Release</button>
+</form>
 						<% } %>
 						<% }else{ %>
 							<div role="alert" >You've no course</div>
