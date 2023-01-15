@@ -53,10 +53,12 @@ exports.getAllCourses = async (req, res) => {
 
 exports.getCourse = async (req, res) => {
   try {
+    const user = await User.findById(req.session.userID);
     const course = await Course.findOne({slug: req.params.slug}).populate('user');
 
     res.status(200).render('index', {
       course,
+      user,
       page_name: 'courses',
       file_name: 'course'
     });

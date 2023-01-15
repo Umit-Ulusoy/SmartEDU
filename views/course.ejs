@@ -34,10 +34,12 @@
 							</div>							
 						</div>
 					</div>
-					<form action="/courses/enroll" method="POST" >
-						<input type="hidden" name="course_id" value="<%= course._id %>" />
-						<button type="submit" >Enroll</button>
-					</form>
+					<% if (user && !(user.courses.includes(course._id)) ) { %>
+	<form action="/courses/enroll" method="POST" >
+		<input type="hidden" name="course_id" value="<%= course._id %>" />
+		<button type="submit" >Enroll</button>
+	</form>
+<% } %>
 					
 					<div class="blog-author">
 						<div class="author-bio">
