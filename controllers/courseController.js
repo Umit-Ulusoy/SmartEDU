@@ -51,7 +51,7 @@ exports.getAllCourses = async (req, res) => {
         {name: { $regex: '.*' + filter.name + '.*', $options: 'i' }},
         {category: filter.category }
       ]
-    }).sort('-createdAt');
+    }).sort('-createdAt').populate('user');
     const categories = await Category.find();
 
     res.status(200).render('index', {
