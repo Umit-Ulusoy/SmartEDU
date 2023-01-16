@@ -12,12 +12,11 @@ exports.createCourse = async (req, res) => {
     }
     );
 
-    res.status(201).redirect('/courses');
+    req.flash("success", "Created successfully");
+    res.status(201).redirect('/users/dashboard');
   } catch (error) {
-    res.status(400).json({
-      status: 'fail',
-      error,
-    });
+    req.flash("error", "Something went wrong! Please try again later");
+    res.status(400).redirect('/users/dashboard');
   }
 };
 
@@ -93,13 +92,12 @@ exports.enrollCourse = async (req, res) =>
     const user = await User.findById(req.session.userID);
        await user.courses.push({_id:req.body.course_id});
     await user.save();
-    
+
+    req.flash("success", "Enrolled successfully");
     res.status(200).redirect('/users/dashboard');
   } catch (error) {
-    res.status(400).json({
-      status: 'fail',
-      error
-    });
+    req.flash("error", "Something went wrong! Please try again later");
+    res.status(400).redirect('/users/dashboard');
   }
 }
 
@@ -109,11 +107,11 @@ try {
     const user = await User.findById(req.session.userID);
   await user.courses.pull({_id: req.body.course_id });
   await user.save();
+
+  req.flash("success", "released successfully");
   res.status(200).redirect('/users/dashboard');
 } catch (error) {
-  res.status(400).json({
-    status: 'fail',
-    error
-  });
+  req.flash("error", "Something went wrong! Please try again later");
+  res.status(400).redirect('/users/dashboard');
 }
 }

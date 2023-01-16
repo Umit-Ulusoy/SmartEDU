@@ -82,11 +82,12 @@ exports.sendEmail = async (req, res) =>
             <p>${req.body.name}</p>
             <pre>${req.body.comments}`
         });
-        res.status(200).send("Message sent: " + nodemailer.getTestMessageUrl(info));
+
+req.flash("success", "Mail sent successfully");
+
+        res.status(200).redirect('/contact');
     } catch (error) {
-        res.status(400).json({
-            status: 'fail',
-            error
-        });
+        req.flash("error", "Something went wrong! Please try again later.");
+        res.status(400).redirect('/contact');
     }
 }

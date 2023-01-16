@@ -2,6 +2,17 @@
 	
 	<div class="all-title-box">
 		<div class="container text-center">
+            <% if (flashMessages) { %>
+                <% if (flashMessages.success) { %>
+                  <div role="alert" class="alert alert-success">
+                <%= flashMessages.success %>
+                </div>
+              <% } else if (flashMessages.error) { %>
+               <div role="alert" class="alert alert-danger">
+                <%= flashMessages.error %>
+                </div>
+                <% } %>
+              <% } %>
 			<h1>Contact Us</h1>
 		</div>
 	</div>

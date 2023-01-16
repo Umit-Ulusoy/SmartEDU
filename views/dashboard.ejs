@@ -5,6 +5,17 @@
 
 				<div class="all-title-box">
 					<div class="container text-center">
+						<% if (flashMessages) { %>
+							<% if (flashMessages.success) { %>
+							  <div role="alert" class="alert alert-success">
+							<%= flashMessages.success %>
+							</div>
+						  <% } else if (flashMessages.error) { %>
+						   <div role="alert" class="alert alert-danger">
+							<%= flashMessages.error %>
+							</div>
+							<% } %>
+						  <% } %>
 						<h1>
 							<%= user.name %><span class="m_1">STUDENT</span>
 						</h1>
@@ -40,6 +51,17 @@
 
 						<div class="all-title-box">
 							<div class="container text-center">
+								<% if (flashMessages) { %>
+									<% if (flashMessages.success) { %>
+									  <div role="alert" class="alert alert-success">
+									<%= flashMessages.success %>
+									</div>
+								  <% } else if (flashMessages.error) { %>
+								   <div role="alert" class="alert alert-danger">
+									<%= flashMessages.error %>
+									</div>
+									<% } %>
+								  <% } %>
 								<h1>
 									<%= user.name %><span class="m_1">TEACHER</span>
 								</h1>
