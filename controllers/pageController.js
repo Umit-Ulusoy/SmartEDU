@@ -41,3 +41,18 @@ module.exports.getLoginPage = async (req, res) =>
         });
     }
 }
+
+exports.getContactPage = async (req, res) =>
+{
+    try {
+        res.status(200).render('index', {
+            page_name: 'contact',
+            file_name: 'contact'
+        });
+    } catch (error) {
+        res.status(400).json({
+            status: 'fail',
+            error
+        });
+    }
+}

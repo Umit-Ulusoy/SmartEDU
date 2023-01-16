@@ -7,5 +7,6 @@ router.route(/^(\/|\/home)$/).get(pageController.getIndex);
 router.route('/about').get(pageController.getAbout);
 router.route('/register').get(redirectMiddleware, pageController.getRegisterPage);
 router.route('/login').get(redirectMiddleware, pageController.getLoginPage);
+router.route('/contact').get(pageController.getContactPage);
 
 module.exports = router;
