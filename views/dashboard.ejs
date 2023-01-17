@@ -96,6 +96,15 @@
 												</div>
 											</div>
 										</div>
+
+										<div class="clearfix">
+											<ul style="list-style-type: none;">
+											  <li style="float: left;"><button class="btn btn-primary rounded-0 text-white"><span>UPDATE</span></button></li>
+											  <li style="float: right;"><a href="/courses/<%= course.slug %>?_method=DELETE" 
+												onclick="return confirm('ARE YOU SURE')"
+												class="btn btn-danger rounded-0 text-white"><span>DELETE</span></a></li>
+											</ul>
+										  </div>
 									</div><!-- end col -->
 									<% } %>
 

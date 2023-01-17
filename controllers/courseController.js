@@ -18,7 +18,19 @@ exports.createCourse = async (req, res) => {
     req.flash("error", "Something went wrong! Please try again later");
     res.status(400).redirect('/users/dashboard');
   }
-};
+}
+
+exports.deleteCourse = async (req, res) => {
+try {
+  const course = await Course.findOneAndRemove({ slug: req.params.slug});
+
+  req.flash('success', `${course.name} has been removed successfully`);
+  res.status(201).redirect('/users/dashboard');
+} catch (error) {
+  req.flash('error', 'Something went wrong! Please try again later.');
+  res.status(400).redirect('/users/dashboard');
+}
+}
 
 exports.getAllCourses = async (req, res) => {
   try {

@@ -6,6 +6,7 @@ router.route('/:slug').get(courseController.getCourse);
 
 router.route('/').get(courseController.getAllCourses);
 router.route('/').post(roleMiddleware(['teacher', 'admin']), courseController.createCourse);
+router.route('/:slug').delete(courseController.deleteCourse);
 router.route('/enroll').post(courseController.enrollCourse);
 router.route('/release').post(courseController.releaseCourse);
 
