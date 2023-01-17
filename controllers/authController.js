@@ -31,15 +31,19 @@ exports.loginUser = async (req, res) => {
             // USER SESSION
             req.session.userID = user._id;
             res.status(200).redirect('/users/dashboard');
+          }else{
+            req.flash('error', 'Credentials are not match our records');
+            res.status(400).redirect('/login');
           }
         });
+      }else{
+        req.flash('error', 'Credentials are not match our records');
+            res.status(400).redirect('/login');
       }
     
   } catch (error) {
-    res.status(400).json({
-      status: 'fail',
-      error,
-    });
+    req.flash('error', 'Something went wrong! Please try again later.');
+    res.status(400).redirect('/login');
   }
 };
 

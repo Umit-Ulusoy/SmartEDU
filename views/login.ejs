@@ -1,6 +1,13 @@
 	
 	        <div class="container">
             <div class="section-title text-center">
+                <% if (flashMessages) { %>
+                    <% if (flashMessages.error) { %>
+                      <div role="alert" class="alert alert-danger">
+                    <%= flashMessages.error%>
+                    </div>
+                  <% } %>
+                  <% } %>
                 <h3 class="mt-5">LOGIN</h3>
 
             <div class="row">
@@ -13,7 +20,7 @@
                                     <input type="email" name="email" id="email" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                    <input type="password" required name="password" id="password" class="form-control" placeholder="Password">
                                 </div>
 
                                 <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
