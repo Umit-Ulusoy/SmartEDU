@@ -1,6 +1,18 @@
 	
 	        <div class="container">
             <div class="section-title text-center">
+                <% if (flashMessages) { %>
+                    <% if (flashMessages.success) { %>
+                      <div role="alert" class="alert alert-success">
+                    <%= flashMessages.success %>
+                    </div>
+                  <% } else if (flashMessages.error) { %>
+                   <div role="alert" class="alert alert-danger">
+                    <%= flashMessages.error %>
+                    </div>
+                    <% } %>
+                  <% } %>
+                
                 <h3 class="mt-5">REGISTER</h3>
 
             <div class="row">
